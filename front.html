@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYTM | Advanced Multi-Account Voice Agent Terminal</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col">
+
+    <nav class="border-b border-slate-800 bg-slate-950 px-6 py-4 flex items-center justify-between shadow-md">
+        <div class="flex items-center space-x-3">
+            <div class="bg-indigo-600 px-3 py-1.5 rounded-lg text-white font-black tracking-widest text-sm shadow-md">MYTM</div>
+            <h1 class="text-xl font-bold tracking-tight bg-gradient-to-r from-slate-100 to-slate-400 bg-clip-text text-transparent">
+                Outbound Automation Center v2.0
+            </h1>
+        </div>
+        <div class="flex items-center space-x-3 bg-slate-900 px-4 py-2 rounded-full border border-slate-800">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-xs text-slate-400 font-semibold tracking-wide uppercase" id="engineVADLabel">VAD System Awake</span>
+        </div>
+    </nav>
+
+    <div class="flex-1 grid grid-cols-1 xl:grid-cols-4 overflow-hidden max-w-[1600px] w-full mx-auto p-6 gap-6">
+
+        <div class="xl:col-span-1 bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl flex flex-col h-[720px]">
+            <div class="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950/50 rounded-t-2xl">
+                <h2 class="font-bold tracking-tight text-slate-200 flex items-center gap-2">
+                    <i class="fa-solid fa-folder-tree text-indigo-400"></i> Account Directory
+                </h2>
+                <span id="custCountBadge" class="text-xs bg-slate-800 border border-slate-700 px-2 py-0.5 rounded-full text-slate-400 font-mono">0 Loaded</span>
+            </div>
+
+            <div id="customerListContainer" class="flex-1 overflow-y-auto p-3 space-y-2 divide-y divide-slate-900/50">
+                <div class="p-8 text-center text-slate-600 text-sm">Loading records pipeline database ledger...</div>
+            </div>
+        </div>
+
+        <div class="xl:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6 h-[720px]">
+
+            <div class="md:col-span-1 space-y-6 flex flex-col justify-between">
+
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                        <i class="fa-solid fa-circle-nodes text-indigo-500"></i> Core Link Monitor
+                    </h3>
+
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-slate-800/80 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400 font-medium">Terminal Status:</span>
+                            <span id="systemStatusBadge" class="text-xs font-black bg-slate-800 text-slate-400 px-2.5 py-1 rounded-md border border-slate-700 tracking-wide uppercase">IDLE</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400 font-medium">Mic Gate Threshold:</span>
+                            <span id="micThresholdValue" class="text-xs font-mono font-bold text-indigo-400 bg-indigo-950/30 border border-indigo-900/30 px-2 py-0.5 rounded">300 (Idle)</span>
+                        </div>
+                    </div>
+
+                    <div id="activeTargetCard" class="hidden bg-indigo-950/20 border border-indigo-500/10 p-4 rounded-xl space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-indigo-600/20 text-indigo-400 p-2 rounded-lg text-sm"><i class="fa-solid fa-headset animate-bounce"></i></div>
+                            <div>
+                                <h4 id="activeTargetName" class="font-bold text-sm text-slate-200">No Target Active</h4>
+                                <span id="activeTargetEmail" class="text-xs text-slate-500 font-mono block truncate max-w-[160px]">...</span>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-800/60 pt-2 flex justify-between items-end">
+                            <span class="text-xs text-slate-500">Outstanding:</span>
+                            <span id="activeTargetBalance" class="text-sm font-black text-emerald-400 font-mono">0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 shadow-xl flex-1 mt-6 space-y-3 flex flex-col justify-center">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2"><i class="fa-solid fa-shield-halved text-emerald-500"></i> Corporate Terms Engine</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Automated collections protocol initiates on system click. Installment extensions fallback limits hardcap configuration strict boundary parameter limits to a maximum window value of <strong class="text-emerald-400 font-bold">30 Days</strong>.
+                    </p>
+                    <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 text-[11px] text-slate-500 font-mono space-y-1">
+                        <div>[Pipeline Output Routing Mode]</div>
+                        <div>Output: Stereo Mixed MP3 Payload</div>
+                        <div>Post-Processing: LLM Summary Log + Mailer</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 bg-slate-950 rounded-2xl border border-slate-800 shadow-2xl flex flex-col h-full overflow-hidden">
+                <div class="px-5 py-4 border-b border-slate-800 bg-slate-950 flex justify-between items-center">
+                    <h3 class="font-bold text-slate-200 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-server text-indigo-400"></i> Active Stream Pipeline Console
+                    </h3>
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">Realtime Transcript</span>
+                </div>
+
+                <div id="dialogueOutputConsole" class="flex-1 p-5 overflow-y-auto space-y-4 bg-slate-950/30 scrollbar-thin scrollbar-thumb-slate-800">
+                    <div class="flex justify-center h-full items-center">
+                        <div class="text-center space-y-2">
+                            <div class="text-slate-600 text-3xl"><i class="fa-solid fa-phone-volume animate-pulse"></i></div>
+                            <p class="text-xs text-slate-500 tracking-wide max-w-xs">Select a customer record account profile target node inside the sidebar ledger mapping to initialize outbound pipeline dial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let currentDialingCustomerId = null;
+
+        // Fetch initialization array tracking metrics directly from backend instance database layer
+        function loadCustomerLedger() {
+            fetch('/api/customers')
+                .then(res => res.json())
+                .then(customers => {
+                    const container = document.getElementById("customerListContainer");
+                    document.getElementById("custCountBadge").innerText = `${customers.length} Accounts`;
+                    container.innerHTML = "";
+
+                    customers.forEach(cust => {
+                        const row = document.createElement("button");
+                        row.type = "button";
+                        row.onclick = () => dialProfileNode(cust.customer_id);
+                        row.className = "w-full text-left p-3.5 rounded-xl hover:bg-slate-900 transition active:scale-[0.99] flex flex-col gap-2 border border-transparent hover:border-slate-800/80 group cursor-pointer";
+
+                        row.innerHTML = `
+                            <div class="flex justify-between items-start w-full">
+                                <span class="font-bold text-sm text-slate-200 group-hover:text-indigo-400 transition">${cust.name}</span>
+                                <span class="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-950/20 border border-emerald-900/30 px-1.5 py-0.5 rounded">
+                                    Rs. ${Number(cust.due_amount).toLocaleString()}
+                                </span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-slate-500 font-mono w-full">
+                                <span class="truncate max-w-[140px]">${cust.email}</span>
+                                <span class="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded-full flex items-center gap-1">
+                                    <i class="fa-solid fa-phone text-[9px] text-indigo-400 group-hover:animate-bounce"></i> Click to Dial
+                                </span>
+                            </div>
+                        `;
+                        container.appendChild(row);
+                    });
+                });
+        }
+
+        function dialProfileNode(cid) {
+            fetch(`/api/dial/${cid}`, { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    console.log("[Dial Command Handshake Output]:", data.message);
+                })
+                .catch(err => console.error("[Dial Exception Breakout Error]:", err));
+        }
+
+        // Setup Continuous Status synchronization pooling routines
+        setInterval(() => {
+            fetch('/api/status')
+                .then(res => res.json())
+                .then(data => {
+                    const badge = document.getElementById("systemStatusBadge");
+                    badge.innerText = data.status;
+
+                    // Modulate display badges style configurations depending on internal machine variables
+                    if(data.status === "SPEAKING") {
+                        badge.className = "text-xs font-black bg-indigo-950 border border-indigo-700/50 text-indigo-400 px-2.5 py-1 rounded-md tracking-wide animate-pulse";
+                    } else if(data.status === "LISTENING") {
+                        badge.className = "text-xs font-black bg-emerald-950 border border-emerald-700/50 text-emerald-400 px-2.5 py-1 rounded-md tracking-wide animate-pulse";
+                    } else if(data.status === "INTERRUPTED") {
+                        badge.className = "text-xs font-black bg-rose-950 border border-rose-700/50 text-rose-400 px-2.5 py-1 rounded-md tracking-wide";
+                    } else if(data.status.startsWith("COMPLETED") || data.status === "CALL COMPLETED") {
+                        badge.className = "text-xs font-black bg-slate-800 border border-slate-700 text-slate-300 px-2.5 py-1 rounded-md tracking-wide";
+                    } else {
+                        badge.className = "text-xs font-black bg-slate-900 border border-slate-800 text-slate-500 px-2.5 py-1 rounded-md tracking-wide";
+                    }
+
+                    document.getElementById("micThresholdValue").innerText = data.threshold;
+
+                    // Sync configuration indicators mapping to targeted metadata matrices
+                    const targetCard = document.getElementById("activeTargetCard");
+                    if(data.current_customer && data.status !== "IDLE") {
+                        targetCard.classList.remove("hidden");
+                        document.getElementById("activeTargetName").innerText = data.current_customer.name;
+                        document.getElementById("activeTargetEmail").innerText = data.current_customer.email;
+                        document.getElementById("activeTargetBalance").innerText = `Rs. ${Number(data.current_customer.due_amount).toLocaleString()}`;
+                    } else {
+                        targetCard.classList.add("hidden");
+                    }
+
+                    // Re-render conversation dialog logs blocks
+                    const consoleLog = document.getElementById("dialogueOutputConsole");
+                    if(data.status === "IDLE" && data.logs.length === 0) {
+                        return; // Retain layout default message state view
+                    }
+
+                    consoleLog.innerHTML = "";
+                    data.logs.forEach(line => {
+                        const wrapper = document.createElement("div");
+                        wrapper.className = "flex flex-col max-w-[85%]";
+
+                        if(line.startsWith("Agent:")) {
+                            wrapper.classList.add("mr-auto", "items-start");
+                            const txt = line.replace("Agent:", "").trim();
+                            wrapper.innerHTML = `
+                                <span class="text-[10px] text-indigo-400 font-bold uppercase tracking-wider mb-1 ml-1"><i class="fa-solid fa-robot"></i> Agent</span>
+                                <div class="bg-indigo-600/10 border border-indigo-500/20 text-slate-200 px-4 py-2.5 rounded-2xl rounded-tl-none text-sm shadow-md">${txt}</div>
+                            `;
+                        } else {
+                            wrapper.classList.add("ml-auto", "items-end");
+                            const txt = line.replace("Customer:", "").trim();
+                            wrapper.innerHTML = `
+                                <span class="text-[10px] text-emerald-400 font-bold uppercase tracking-wider mb-1 mr-1">Customer <i class="fa-solid fa-user"></i></span>
+                                <div class="bg-emerald-600/10 border border-emerald-500/20 text-slate-200 px-4 py-2.5 rounded-2xl rounded-tr-none text-sm shadow-md">${txt}</div>
+                            `;
+                        }
+                        consoleLog.appendChild(wrapper);
+                    });
+                });
+        }, 400);
+
+        // Run Ledger populations routines upon framework loading initialization completion
+        window.onload = loadCustomerLedger;
+    </script>
+</body>
+</html>
