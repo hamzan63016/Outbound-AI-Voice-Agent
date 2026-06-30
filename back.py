@@ -146,9 +146,9 @@ def _timed(fn):
 # CREDENTIALS  (loaded from environment or hardcoded fallback)
 # ─────────────────────────────────────────────────────────────────────────────
 OPENROUTER_API_KEY  = os.environ.get("OPENROUTER_API_KEY",
-                      "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")
+                      "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")
 SENDER_EMAIL        = os.environ.get("SENDER_EMAIL",        "hamza.n63016@gmail.com")
-SENDER_APP_PASSWORD = os.environ.get("SENDER_APP_PASSWORD", "rexy uszs wsku uyht")
+SENDER_APP_PASSWORD = os.environ.get("SENDER_APP_PASSWORD", "rexi usjs wsqu ukhl")
 
 client = OpenAI(api_key=OPENROUTER_API_KEY, base_url="https://openrouter.ai/api/v1")
 
