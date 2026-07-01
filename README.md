@@ -19,4 +19,8 @@ Session Auditing & Record Merging: Throughout the call, the program records both
 
 <img width="217" height="369" alt="Screenshot 2026-06-29 151826" src="https://github.com/user-attachments/assets/4594a18f-8b06-4e5e-9dda-b54126499598" />
 
+**Dashboard:**
+
+<img width="1920" height="1080" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/ab4555e7-43b7-4f92-a8f2-94ff08dd3c43" />
+
 
