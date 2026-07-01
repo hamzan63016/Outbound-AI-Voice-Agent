@@ -23,4 +23,7 @@ Session Auditing & Record Merging: Throughout the call, the program records both
 
 <img width="1920" height="1080" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/ab4555e7-43b7-4f92-a8f2-94ff08dd3c43" />
 
+**E-Mail:**
+<img width="1920" height="1080" alt="Screenshot (12)" src="https://github.com/user-attachments/assets/4cc29e02-0b87-44a8-8105-56380847f708" />
+
 
