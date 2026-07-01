@@ -26,4 +26,5 @@ Session Auditing & Record Merging: Throughout the call, the program records both
 **E-Mail:**
 <img width="1920" height="1080" alt="Screenshot (12)" src="https://github.com/user-attachments/assets/4cc29e02-0b87-44a8-8105-56380847f708" />
 
-
+**Call Recording:**
+ [call_session_1_20260629_154416.wav](https://github.com/user-attachments/files/29547615/call_session_1_20260629_154416.wav)
