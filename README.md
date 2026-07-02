@@ -21,10 +21,21 @@ Session Auditing & Record Merging: Throughout the call, the program records both
 
 **Dashboard:**
 
-<img width="1920" height="1080" alt="Screenshot (11)" src="https://github.com/user-attachments/assets/ab4555e7-43b7-4f92-a8f2-94ff08dd3c43" />
+<img width="960" height="540" alt="Screenshot 2026-06-29 150032" src="https://github.com/user-attachments/assets/a1c06e9a-a1dc-4584-ac39-b55c3c15095c" />
+
 
 **E-Mail:**
-<img width="1920" height="1080" alt="Screenshot (12)" src="https://github.com/user-attachments/assets/4cc29e02-0b87-44a8-8105-56380847f708" />
+<img width="1920" height="1080" alt="Screenshot (Email)" src="https://github.com/user-attachments/assets/1e3f8550-2d80-4db4-93ac-82d75a313bb9" />
+
 
 **Call Recording:**
- [call_session_1_20260629_154416.wav](https://github.com/user-attachments/files/29547615/call_session_1_20260629_154416.wav)
+[call_session_1_20260702_095427.wav](https://github.com/user-attachments/files/29584166/call_session_1_20260702_095427.wav)
+
+
+
+
+
+
+
+
+
